@@ -5,6 +5,14 @@ const colors = require('colors');
 const FormData = require('form-data');
 const { HttpsProxyAgent } = require('https-proxy-agent');
 const { Worker, isMainThread, workerData } = require('worker_threads');
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000; // Sử dụng cổng từ biến môi trường hoặc cổng 3000
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
 
 class KucoinAPIClient {
     constructor(accountIndex = 0) {
